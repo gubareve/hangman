@@ -40,7 +40,7 @@ def doesnt_include(words,letters):
             result.append(word)
     return result
 
-if __name__ == '__main__':
+def start():
     try:
         words = load_words()
         number_of_letters = int(input('How many letters are on the board:\n>> '))
@@ -59,6 +59,8 @@ if __name__ == '__main__':
             letters = tuple(letters)
             try:
                 print('The most common letter is '+common_letter(words, letters)+' so guess that :).')
+                while True:
+                    if input('Is that correct? (y/n)\n>> ') == 'n':
                         wrong_letters.append(common_letter(words, letters))
                         print('You should try '+common_letter(doesnt_include(words,wrong_letters),letters))
                         if input('Is that correct? (y/n)\n>> ') == 'n':
